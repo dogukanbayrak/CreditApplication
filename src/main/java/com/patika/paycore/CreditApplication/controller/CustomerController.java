@@ -25,12 +25,12 @@ public class CustomerController {
 
     @GetMapping(path = "/all")
     public List<Customer> getAllCustomers() {
-
         return customerService.getAllCustomers();
     }
+
     @PostMapping(path= "/get")
     public Customer getCustomer(@RequestParam Integer id){
-        return  customerService.getCustomer(id);
+         return customerService.getCustomer(id);
     }
 
     @PostMapping(path = "/add")
