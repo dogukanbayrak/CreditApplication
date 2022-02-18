@@ -6,10 +6,8 @@ CREATE TABLE customer(
     customer_income             INT(10)         NOT NULL,
     customer_phone              INT(20)         UNIQUE NOT NULL,
     customer_identitynumber     INT (20)        UNIQUE NOT NULL,
-    customer_creditscore        INT                            ,
-
+    customer_creditscore        INT
 );
-
 
 
 --//////////////////////

@@ -1,45 +1,54 @@
 package com.patika.paycore.CreditApplication.service.impl;
 
 import com.patika.paycore.CreditApplication.model.Customer;
+import com.patika.paycore.CreditApplication.repository.CustomerRepository;
 import com.patika.paycore.CreditApplication.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class CustomerServiceimp implements CustomerService {
 
-    private List<Customer> customers = new ArrayList<>();
-
-    {
-        customers.add(new Customer("Burkay 1"));
-        customers.add(new Customer("Onur"));
-    }
-
-
+    @Autowired
+   private CustomerRepository customerRepository;
 
     @Override
     public List<Customer> getAllCustomers() {
-        return customers;
+        List<Customer> all=customerRepository.findAll();
+        return all;
     }
 
     @Override
     public Customer getCustomer(Integer id) {
+        Optional<Customer> byId = customerRepository.findById(id);
+        if(byId.isPresent()){
+            return byId.get();
+        }
         return null;
     }
 
     @Override
     public boolean addCustomer(Customer customer) {
-        return customers.add(customer);
-
+        Customer save = customerRepository.save(customer);
+        if(save == null)
+            return false;
+        return true;
     }
 
     @Override
     public Customer updateCustomer(Customer customer) {
-        return null;
+
+        return customerRepository.save(customer);
     }
 
     @Override
     public boolean deleteCustomer(Integer id) {
-        return false;
+        customerRepository.deleteById(id);
+        return true;
     }
 }
