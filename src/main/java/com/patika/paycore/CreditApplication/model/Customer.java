@@ -22,6 +22,21 @@ public class Customer {
     private Integer id;
 
     @NotBlank
-    private String name;
+    private String customer_name;
+
+    @NotBlank
+    private String customer_surname;
+
+    @NotBlank
+    private Integer customer_income;
+
+    @NotBlank
+    private String customer_phone;
+
+    @NotBlank
+    private String customer_identitynumber;
+
+
+
 
 }

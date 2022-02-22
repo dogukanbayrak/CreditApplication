@@ -5,8 +5,8 @@ CREATE TABLE customer
     customer_name VARCHAR(50) NOT NULL,
     customer_surname VARCHAR (50) NOT NULL,
     customer_income INT NOT NULL,
-    customer_phone INT UNIQUE NOT NULL,
-    customer_identity_number INT UNIQUE NOT NULL
+    customer_phone VARCHAR(11) UNIQUE NOT NULL,
+    customer_identitynumber VARCHAR(11) UNIQUE NOT NULL
 );
 
 
@@ -15,7 +15,7 @@ CREATE TABLE customer
 ----Sample Test Values
 ----//////////////////////
 
-INSERT INTO customer(customer_name, customer_surname, customer_income , customer_phone,customer_identity_number)
-            VALUES  ('Burkay', 'Ozturk',8000,43322,54321),
-                    ('Onur', 'Cicek',10000,43321,43210),
-                    ('Emre', 'Pep',3000,02211,32109);
+INSERT INTO customer(customer_name, customer_surname, customer_income , customer_phone,customer_identitynumber)
+            VALUES  ('Burkay', 'Ozturk',8000,'43322','12345678911'),
+                    ('Onur', 'Cicek',10000,'43321','98765432193'),
+                    ('Emre', 'Pep',3000,'02211','32109045692');
