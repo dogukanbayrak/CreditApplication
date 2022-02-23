@@ -22,21 +22,20 @@ public class Customer {
     private Integer id;
 
     @NotBlank
-    private String customer_name;
+    private String name;
 
     @NotBlank
-    private String customer_surname;
+    private String surname;
 
     @NotBlank
-    private Integer customer_income;
+    private Integer income;
 
     @NotBlank
-    private String customer_phone;
+    private String phone;
 
     @NotBlank
-    private String customer_identitynumber;
-
-
+    @Column(name = "identity_number")
+    private String identitynumber;
 
 
 }

@@ -2,7 +2,10 @@ package com.patika.paycore.CreditApplication.controller;
 
 
 import com.patika.paycore.CreditApplication.model.Customer;
+import com.patika.paycore.CreditApplication.model.CustomerDTO;
+import com.patika.paycore.CreditApplication.model.mapper.CustomerMapper;
 import com.patika.paycore.CreditApplication.service.CustomerService;
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +16,7 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
+    private static final CustomerMapper CUSTOMER_MAPPER= Mappers.getMapper(CustomerMapper.class);
 
     @Autowired
     private CustomerService customerService;
@@ -34,8 +38,8 @@ public class CustomerController {
     }
 
     @PostMapping(path = "/add")
-    public boolean addCustomer(@RequestBody Customer customer) {
-        return customerService.addCustomer(customer);
+    public boolean addCustomer(@RequestBody CustomerDTO customer) {
+        return customerService.addCustomer(CUSTOMER_MAPPER.toEntity(customer));
 
     }
 
